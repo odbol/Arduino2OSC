@@ -1,7 +1,7 @@
 Arduino2OSC Bridge
 Convert Arduino sensor data into OSC messages.
 
-For Max/MSP 4.6.
+For Max/MSP 4.6. 
 
 More info: http://vjacket.com
 
@@ -27,6 +27,8 @@ LICENSE:
 
 SETUP INSTRUCTIONS:
 
+0. If you don't have Max/MSP, download the runtime from http://cycling74.com for free. Alternatvely,
+download the compiled Arduino2OSC binary at http://github.com/odbol/Arduino2OSC
 1. Load the code from "Arduino Code/Arduino2Max_OCT2007.pde" into your Arduino.
 2. Load the Max patch "Arduino2OSC". 
 3a. Load the Max patch "Arduino2MaxOctober2007V.4" and follow its instructions to connect to your 
@@ -39,3 +41,14 @@ liking using the sliders and controls.
 be sent, but the "${1}" in the OSC dropdown will be replaced with the value from the sensor. 
 The current paths are only for Resolume Avenue, but you can change them in the code. 
 6. Save your preset and use it later!
+
+
+KNOWN ISSUES:
+
+* One-hit options do not get saved with the preset as of yet. When you load a preset you will have 
+to change the one-hit options by hand.
+* OSC message mappings are only for Resolume Avenue at the moment. You may add your own, but it will
+take a bit of reprogramming in the Arduino2OSC.js file. Look at the initDropdownValues() function.
+* I haven't done that programming yet because filesystem support in Max/MSP 4.6 Javascript is 
+severely buggy. I can't get it to save an entire mapping preset file... there seems to be a limit of
+the internal string buffer which cuts off the file halfway through.
